@@ -1,8 +1,10 @@
 const inquirer = require('inquirer')
+const generateHTML = require('./src/generateHTML')
 const fs = require('fs')
 const Manager = require('./lib/Manager')
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
+const yourTeam = [];
 
 
 const managerQuestions = () => {
@@ -33,8 +35,9 @@ const managerQuestions = () => {
         .then((data) => {
             const manager = new Manager(data.managername, data.managerid, data.manageremail, data.managernumber)
             console.log(manager)
+            yourTeam.push(manager)
         })
-        .then(showMenu);
+        .then(options);
 }
 const engineerQuestions = () => {
     const questions = [
@@ -64,8 +67,9 @@ const engineerQuestions = () => {
         .then((data) => {
             const engineer = new Engineer(data.engineername, data.engineerid, data.engineersemail, data.engineergithub)
             console.log(engineer)
+            yourTeam.push(engineer)
         })
-        .then(showMenu);
+        .then(options);
 }
 const internQuestions = () => {
     const questions = [
@@ -95,11 +99,12 @@ const internQuestions = () => {
         .then((data) => {
             const intern = new Intern(data.internsname, data.internsid, data.internsemail, data.internsschool)
             console.log(intern)
+            yourTeam.push(intern)
         })
-        .then(showMenu);
+        .then(options);
 }
 
-const showMenu = () => {
+const options = () => {
     const questions = [
         {
             type: "list",
@@ -108,7 +113,7 @@ const showMenu = () => {
             choices: [
                 { name: "Engineer", value: "Action1" },
                 { name: "Intern", value: "Action2" },
-                { name: "Finish", value: "Action3" },
+                { name: "Finish Team Generator", value: "Action3" },
             ]
         }
     ];
@@ -120,16 +125,14 @@ const showMenu = () => {
             }
             else if (answers.action === 'Action2') {
                 internQuestions();
-            }
-            else {
-                console.log('Exiting program.')
-                process.exit(0);
+            } else if (answers.action === 'Action3'){
+                console.log('Finishing...')
+                console.log(yourTeam)
+                const yourHTML = generateHTML(yourTeam)
+                fs.writeFile('dist/index.html', yourHTML, (err) =>
+                err ? console.error(err) : console.log('Success! You generated your TEAM!'))
             }
         })
-        .catch((error, response) => {
-            console.error('Error:', error);
-        });
-
 };
 
 managerQuestions()
