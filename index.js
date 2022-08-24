@@ -1,9 +1,9 @@
-const inquirer = require('inquirer')
-const generateHTML = require('./src/generateHTML')
-const fs = require('fs')
-const Manager = require('./lib/Manager')
-const Engineer = require('./lib/Engineer')
-const Intern = require('./lib/Intern')
+const inquirer = require('inquirer');
+const generateHTML = require('./src/generateHTML');
+const fs = require('fs');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 const yourTeam = [];
 
 
@@ -125,11 +125,11 @@ const options = () => {
             }
             else if (answers.action === 'Action2') {
                 internQuestions();
-            } else if (answers.action === 'Action3'){
+            } 
+            else if (answers.action === 'Action3'){
                 console.log('Finishing...')
                 console.log(yourTeam)
-                const yourHTML = generateHTML(yourTeam)
-                fs.writeFile('dist/index.html', yourHTML, (err) =>
+                fs.writeFile('dist/index.html', generateHTML(yourTeam), (err) =>
                 err ? console.error(err) : console.log('Success! You generated your TEAM!'))
             }
         })
