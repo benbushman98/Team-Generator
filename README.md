@@ -6,5 +6,5 @@ This project was developed with node.js and OOP (Object Oriented Programming). W
 ## Walkthrough Video Link
 [https://drive.google.com/file/d/1ec4i3cMlf0eGpK1hSPkQLQKKQUvR77DX/view?usp=sharing](https://drive.google.com/file/d/14Klq65SeJdgi5DbNcACEAhuRvpedPi1R/view?usp=sharing)
 
-## Screenshot of a generated README
+## Screenshot of a generated TEAM
 ![Photo of generated team](src/img/Your-Team.png)
