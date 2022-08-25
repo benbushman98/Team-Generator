@@ -37,6 +37,7 @@ const managerQuestions = () => {
             console.log(manager)
             yourTeam.push(manager)
         })
+        
         .then(options);
 }
 const engineerQuestions = () => {

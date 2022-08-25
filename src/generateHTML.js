@@ -1,51 +1,51 @@
 const createdTeam = (theTeam) => {
     const genTeam = [];
 
-    const getIntern = intern => {
+    const renderIntern = intern => {
         let internSection = `<section class="w-25 mx-2 shadow-lg mb-5 bg-body rounded1">
         <header class="m-0 bg-primary text-white">
-            <h1 class="py-2 mx-4">${intern.internsname}</h1>
+            <h1 class="py-2 mx-4">${intern.name}</h1>
             <h3 class="my-0 mx-4 pb-3">Intern</h2>
         </header>
         <main class="bg-light bg-gradient">
-            <ul class="pb-5">
-                <li class="list-unstyled my-4">ID: ${intern.internsid}</li>
-                <li class="list-unstyled my-4">Email: <a href="mailto:${intern.internsemail}">${intern.internsemail}</a></li>
-                <li class="list-unstyled my-4">School: ${intern.internsschool}</li>
+            <ul class="p-3">
+                <li class="list-unstyled my-4">ID: ${intern.id}</li>
+                <li class="list-unstyled my-4">Email: <a href="mailto:${intern.email}">${intern.email}</a></li>
+                <li class="list-unstyled my-4">School: ${intern.school}</li>
             </ul>
         </main>
     </section>`;
         genTeam.push(internSection);
     }
 
-    const getEngineer = engineer => {
+    const renderEngineer = engineer => {
         let engineerSection = `<section class="w-25 mx-2 shadow-lg mb-5 bg-body rounded1">
         <header class="m-0 bg-primary text-white">
-            <h1 class="py-2 mx-4">${engineer.engineername}</h1>
+            <h1 class="py-2 mx-4">${engineer.name}</h1>
             <h3 class="my-0 mx-4 pb-3">Engineer</h2>
         </header>
         <main class="bg-light bg-gradient">
-            <ul class="pb-5">
-                <li class="list-unstyled my-4">ID: ${engineer.engineerid}</li>
-                <li class="list-unstyled my-4">Email: <a href="mailto:${engineer.engineersemail}">${engineer.engineersemail}</a></li>
-                <li class="list-unstyled my-4">GitHub: <a href="https://github.com/${engineer.engineergithub} target="_blank">${engineer.engineergithub}</a></li>
+            <ul class="p-3">
+                <li class="list-unstyled my-4">ID: ${engineer.id}</li>
+                <li class="list-unstyled my-4">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></li>
+                <li class="list-unstyled my-4">GitHub: <a href="https://github.com/${engineer.github}" target="_blank">${engineer.github}</a></li>
             </ul>
         </main>
     </section>`;
         genTeam.push(engineerSection);
     }
 
-    const getManager = manager => {
+    const renderManager = manager => {
         let managerSection = `<section class="w-25 mx-2 shadow-lg mb-5 bg-body rounded1">
         <header class="m-0 bg-primary text-white">
-            <h1 class="py-2 mx-4">${manager.managername}</h1>
+            <h1 class="py-2 mx-4">${manager.name}</h1>
             <h3 class="my-0 mx-4 pb-3">Manager</h2>
         </header>
         <main class="bg-light bg-gradient">
-            <ul class="pb-5">
-                <li class="list-unstyled my-4">ID: ${manager.managerid}</li>
-                <li class="list-unstyled my-4">Email: <a href="mailto:${manager.manageremail}">${manager.manageremail}</a></li>
-                <li class="list-unstyled my-4">Office Number: ${manager.managernumber}</li>
+            <ul class="p-3">
+                <li class="list-unstyled my-4">ID: ${manager.id}</li>
+                <li class="list-unstyled my-4">Email: <a href="mailto:${manager.email}">${manager.email}</a></li>
+                <li class="list-unstyled my-4">Office Number: <a href="tel:${manager.officeNumber}">${manager.officeNumber}</a></li>
             </ul>
         </main>
     </section>`;
@@ -54,13 +54,13 @@ const createdTeam = (theTeam) => {
 
     for (employee of theTeam) {
         if (employee.getRole() === 'Intern') {
-            getIntern(employee)
+            renderIntern(employee)
         }
         if (employee.getRole() === 'Engineer') {
-            getEngineer(employee)
+            renderEngineer(employee)
         }
         if (employee.getRole() === 'Manager') {
-            getManager(employee)
+            renderManager(employee)
         }
     }
 
@@ -68,7 +68,7 @@ const createdTeam = (theTeam) => {
 }
 
 function generateHTML(yourTeam) {
-`<html lang="en">
+return `<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -84,7 +84,7 @@ function generateHTML(yourTeam) {
         <h1 class="p-5 text-white">My Team</h1>
     </nav>
 
-    <main class="d-flex justify-content-center">
+    <main class="d-flex justify-content-center flex-wrap">
         ${createdTeam(yourTeam)}
     </main>
 
