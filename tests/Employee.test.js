@@ -10,6 +10,7 @@ describe("Employee", () => {
             expect(employee.name).toEqual(name)
             expect(employee.id).toEqual(id)
             expect(employee.email).toEqual(email)
+            expect(employee.getRole()).toEqual("Employee")
         })
     })
 })

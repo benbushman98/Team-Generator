@@ -12,6 +12,7 @@ describe("Intern", () => {
             expect(intern.id).toEqual(id)
             expect(intern.email).toEqual(email)
             expect(intern.school).toEqual(school)
+            expect(intern.getRole()).toEqual("Intern")
         })
     })
 })

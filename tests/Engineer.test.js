@@ -12,6 +12,7 @@ describe("Engineer", () => {
             expect(engineer.id).toEqual(id)
             expect(engineer.email).toEqual(email)
             expect(engineer.github).toEqual(github)
+            expect(engineer.getRole()).toEqual("Engineer")
         })
     })
 })
