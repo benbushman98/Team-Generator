@@ -7,4 +7,4 @@ This project was developed with node.js and OOP (Object Oriented Programming). W
 https://drive.google.com/file/d/1ec4i3cMlf0eGpK1hSPkQLQKKQUvR77DX/view?usp=sharing
 
 ## Screenshot of a generated README
-![Photo of generated team](src/img/your-team.png)
+![Photo of generated team](src/img/Your-Team.png)
